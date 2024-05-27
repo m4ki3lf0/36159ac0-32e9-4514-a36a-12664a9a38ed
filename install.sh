@@ -21,7 +21,6 @@ echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 echo "deb http://ftp.fr.debian.org/debian/ jessie main non-free" >> /etc/apt/sources.list
 echo "deb-src http://ftp.fr.debian.org/debian/ jessie main non-free" >> /etc/
 
-git clone https://github.com/r3motecontrol/Ghostpack-CompiledBinaries.git 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/Frozenka/uploader.git /opt/tools/uploader
 pip3 install -r /opt/tools/uploader/requirements.txt
