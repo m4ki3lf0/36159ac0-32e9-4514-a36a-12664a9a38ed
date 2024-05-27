@@ -1,0 +1,4 @@
+xfreerdp /u:$USER /d:$DOMAINE /v:$IP /p:'$PASSWORD' /kbd:0x00000813 /cert-ignore /dynamic-resolution
+nmap -sU --min-rate 5000 --top 200 $TARGET
+mssqlclient.py <user>@<FQDN/IP> -windows-auth
+certipy find -vulnerable -u "$USER@$DOMAIN" -p "$PASSWORD" -stdout
