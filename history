@@ -1,15 +1,15 @@
-xfreerdp /u:$USER /d:$DOMAINE /v:$IP /p:'$PASSWORD' /kbd:0x00000813 /cert-ignore /dynamic-resolution
+xfreerdp /u:$USER /d:$DOMAIN /v:$IP /p:$PASSWORD /cert-ignore /dynamic-resolution
 nmap -sU --min-rate 5000 --top 200 $TARGET
 bloodhound.py -d '$DC' -u '$USER' -p '$PASSWORD' -c all
 nxc ldap $IP -u $USER -p $PASSWORD --bloodhound --collection All --dns-server $IP
 mssqlclient.py <user>@<FQDN/IP> -windows-auth
 certipy find -vulnerable -u "$USER@$DOMAIN" -p "$PASSWORD" -stdout
 certipy auth -pfx fichier.pfx -dc-ip $IP
-exegol export creds --u "$USERNAME" -p "$PASSWORD"
-exegol export hosts --ip "$IP"
-exegol add creds --u "$USERNAME" -p "$PASSWORD"
-exegol add hosts --ip "$IP"
-exegol show
-exegol apply creds
-exegol apply hosts
-
+exegol-history export creds --u "$USERNAME" -p "$PASSWORD"
+exegol-history export hosts --ip "$IP"
+exegol-history add creds --u "$USERNAME" -p "$PASSWORD"
+exegol-history add hosts --ip "$IP"
+exegol-history show
+exegol-history apply creds
+exegol-history apply hosts
+faketime "$(ntpdate -q $IP | awk '{print $1 " " $2}')" <cmd>
